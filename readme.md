@@ -1,0 +1,6 @@
+npm install
+
+❯ npm run dev
+
+> vite-react-typescript-starter@0.0.0 dev
+> vite
