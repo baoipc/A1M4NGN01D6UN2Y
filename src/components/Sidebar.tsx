@@ -1,4 +1,3 @@
-
 import { Users, Calendar, FileText, FolderOpen, Award, Activity } from 'lucide-react';
 import { Section } from '../App';
 
@@ -21,7 +20,7 @@ function Sidebar({ activeSection, setActiveSection, sidebarOpen }: SidebarProps)
   if (!sidebarOpen) return null;
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 fixed left-0 top-16 h-[calc(100vh-4rem)] overflow-y-auto shadow-lg">
+    <aside className="w-64 bg-white border-r border-gray-200 fixed left-0 top-28 h-[calc(100vh-7rem)] overflow-y-auto shadow-lg lg:hidden z-40">
       <nav className="p-4">
         <ul className="space-y-2">
           {menuItems.map((item) => {
@@ -46,13 +45,6 @@ function Sidebar({ activeSection, setActiveSection, sidebarOpen }: SidebarProps)
           })}
         </ul>
       </nav>
-
-      <div className="p-4 border-t border-gray-200 mt-4">
-        <div className="bg-red-50 rounded-lg p-4">
-          <p className="text-xs text-red-800 font-semibold mb-1">Chỉ dành cho nội bộ</p>
-          <p className="text-xs text-gray-600">Chỉ đảng viên được phân quyền mới có thể truy cập</p>
-        </div>
-      </div>
     </aside>
   );
 }

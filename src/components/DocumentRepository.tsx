@@ -34,7 +34,7 @@ const categories = [
   },
   {
     title: 'Hồ sơ hành chính',
-    description: 'Một số văn bản nội bộ và tài liệu khác trong chi bộ',
+    description: 'Một số văn bản  và tài liệu khác trong chi bộ',
     color: 'bg-amber-50 border-amber-200 text-amber-700',
     url: '#',
   },
