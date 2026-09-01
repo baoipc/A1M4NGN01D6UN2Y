@@ -169,6 +169,7 @@ function PartyMemberManagement() {
     const imageName = words
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join('');
+    
     return `./image/${imageName}.jpg`;
   };
 
@@ -274,7 +275,7 @@ function PartyMemberManagement() {
                           )}
                           <div className="border-t border-red-500 pt-2 mt-2 space-y-1">
                             <p className="text-red-100 text-xs font-medium">MSSV: {leader['MSSV']}</p>
-                            <p className="text-red-100 text-xs font-medium">{leader['Khoa']}</p>
+                            
                           </div>
                         </div>
                       </div>

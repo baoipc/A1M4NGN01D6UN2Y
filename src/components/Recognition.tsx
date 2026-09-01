@@ -103,21 +103,25 @@ function Recognition() {
 
   // Convert to array and add image paths
   const individuals: PersonAchievements[] = Object.entries(groupedByPerson).map(([name, achievements]) => {
-    // Chuyển đổi tên: Nguyễn Văn A -> NguyenVanA
-    const imageName = name
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join('')
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/đ/g, 'D')
-      .replace(/Đ/g, 'D');
-    
+  const imageName = name
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+
     return {
       name,
       image: `image/${imageName}.jpg`,
-      achievements: achievements.sort((a, b) => (b.year || 0) - (a.year || 0))
+      achievements: achievements.sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0))
     };
+  }).sort((a, b) => {
+    // Số thành tích nhiều hơn xếp trước
+    if (b.achievements.length !== a.achievements.length) {
+      return b.achievements.length - a.achievements.length;
+    }
+    // Bằng nhau thì xếp theo tên (chữ cái, hỗ trợ dấu tiếng Việt)
+    return a.name.localeCompare(b.name, 'vi');
   });
 
   // Group Đảng achievements by category
